@@ -9,6 +9,10 @@ cryptography
 flask
 flask-cors
 
+# AI / ML
+scikit-learn
+groq
+
 # Performance & Visualization
 numpy
 matplotlib
@@ -18,3 +22,4 @@ seaborn
 # Utilities
 python-dotenv
 tqdm
+requests
