@@ -135,7 +135,8 @@ def main():
     print(f"{'Algorithm':<25} {'Classical Security':<25} {'Quantum Security'}")
     print("-"*70)
     print(f"{'Kyber-768':<25} {'✅ ~192 bits':<25} {'✅ SAFE'}")
-    print(f"{'RSA-2048':<25} {'✅ ~112 bits':<25} {'❌ BROKEN (Shor\'s algorithm)'}")
+    broken_label = "❌ BROKEN (Shor's algorithm)"
+    print(f"{'RSA-2048':<25} {'✅ ~112 bits':<25} {broken_label}")
     print("="*70)
 
 if __name__ == "__main__":
