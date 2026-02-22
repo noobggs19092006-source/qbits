@@ -1,23 +1,10 @@
 services:
   - type: web
-    name: qbits-quantum-crypto
-    env: python
-    region: singapore  # closest free region for India
+    name: qbits
+    env: docker
+    region: singapore
     plan: free
-    buildCommand: |
-      apt-get update && apt-get install -y cmake ninja-build libssl-dev pkg-config
-      git clone --depth 1 https://github.com/open-quantum-safe/liboqs.git /tmp/liboqs
-      cmake -S /tmp/liboqs -B /tmp/liboqs/build -DOQS_DIST_BUILD=ON -DBUILD_SHARED_LIBS=ON -DCMAKE_BUILD_TYPE=Release
-      cmake --build /tmp/liboqs/build --parallel 4
-      cmake --install /tmp/liboqs/build
-      ldconfig
-      pip install -r requirements.txt
-    startCommand: python src/app.py
     envVars:
       - key: GROQ_API_KEY
-        sync: false        # you'll add this manually in Render dashboard
-      - key: LD_LIBRARY_PATH
-        value: /usr/local/lib
-      - key: PORT
-        value: 5000
+        sync: false   # set this manually in Render dashboard
     healthCheckPath: /
