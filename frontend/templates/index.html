@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QBits - Quantum-Safe Encryption Platform</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Animated Beams Background -->
+    <div class="animated-bg">
+        <div class="beam" style="left: 5%; animation-delay: 0s;"></div>
+        <div class="beam" style="left: 10%; animation-delay: 0.5s;"></div>
+        <div class="beam" style="left: 15%; animation-delay: 1s;"></div>
+        <div class="beam" style="left: 20%; animation-delay: 1.5s;"></div>
+        <div class="beam" style="left: 25%; animation-delay: 2s;"></div>
+        <div class="beam" style="left: 30%; animation-delay: 2.5s;"></div>
+        <div class="beam" style="left: 35%; animation-delay: 0.3s;"></div>
+        <div class="beam" style="left: 40%; animation-delay: 0.8s;"></div>
+        <div class="beam" style="left: 45%; animation-delay: 1.3s;"></div>
+        <div class="beam" style="left: 50%; animation-delay: 1.8s;"></div>
+        <div class="beam" style="left: 55%; animation-delay: 2.3s;"></div>
+        <div class="beam" style="left: 60%; animation-delay: 0.6s;"></div>
+        <div class="beam" style="left: 65%; animation-delay: 1.1s;"></div>
+        <div class="beam" style="left: 70%; animation-delay: 1.6s;"></div>
+        <div class="beam" style="left: 75%; animation-delay: 2.1s;"></div>
+        <div class="beam" style="left: 80%; animation-delay: 0.4s;"></div>
+        <div class="beam" style="left: 85%; animation-delay: 0.9s;"></div>
+        <div class="beam" style="left: 90%; animation-delay: 1.4s;"></div>
+        <div class="beam" style="left: 95%; animation-delay: 1.9s;"></div>
+        <div class="beam" style="left: 100%; animation-delay: 2.4s;"></div>
+    </div>
+
+    <div class="container">
+        <!-- Header with QBits Branding -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-atom"></i>
+                <h1>QBits</h1>
+            </div>
+            <p class="subtitle">AI-Powered Post-Quantum Cryptography Platform</p>
+
+            <!-- Quantum Threat Meter -->
+            <div class="threat-meter">
+                <div class="threat-label">⚛️ Quantum Threat Level</div>
+                <div class="threat-bar">
+                    <div class="threat-fill" id="threatFill" style="width: 0%"></div>
+                </div>
+                <div class="threat-text" id="threatText">Analyzing quantum computing progress...</div>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <div class="tabs">
+            <button class="tab active" data-tab="encrypt">
+                <i class="fas fa-lock"></i> Encryption
+            </button>
+            <button class="tab" data-tab="decrypt">
+                <i class="fas fa-lock-open"></i> Decryption
+            </button>
+            <button class="tab" data-tab="intel">
+                <i class="fas fa-brain"></i> Threat Intel
+            </button>
+            <button class="tab" data-tab="assistant">
+                <i class="fas fa-robot"></i> AI Assistant
+            </button>
+            <button class="tab" data-tab="dashboard">
+                <i class="fas fa-chart-line"></i> Dashboard
+            </button>
+        </div>
+
+        <!-- Encryption Tab -->
+        <div class="tab-content active" id="encrypt-tab">
+            <section class="card glass">
+                <h2><i class="fas fa-cog"></i> Select Encryption Algorithm</h2>
+                <div class="algorithm-grid">
+                    <label class="algorithm-option">
+                        <input type="radio" name="algorithm" value="kyber768" checked>
+                        <div class="option-content">
+                            <div class="option-header">
+                                <h3>Kyber-768</h3>
+                                <span class="badge quantum-safe">✓ Quantum-Safe</span>
+                            </div>
+                            <p>NIST-approved lattice-based encryption. Immune to quantum attacks.</p>
+                            <div class="stats">
+                                <span><i class="fas fa-bolt"></i> 6515x faster key generation</span>
+                                <span><i class="fas fa-shield-alt"></i> 192-bit security level</span>
+                                <span><i class="fas fa-check-circle"></i> NIST standardized 2024</span>
+                            </div>
+                        </div>
+                    </label>
+
+                    <label class="algorithm-option">
+                        <input type="radio" name="algorithm" value="rsa2048">
+                        <div class="option-content">
+                            <div class="option-header">
+                                <h3>RSA-2048</h3>
+                                <span class="badge vulnerable">⚠ Vulnerable</span>
+                            </div>
+                            <p>Traditional public-key encryption. Will be broken by quantum computers in 2030.</p>
+                            <div class="stats">
+                                <span><i class="fas fa-clock"></i> Legacy standard</span>
+                                <span><i class="fas fa-exclamation-triangle"></i> Quantum-vulnerable</span>
+                                <span><i class="fas fa-calendar-times"></i> Broken by 2030</span>
+                            </div>
+                        </div>
+                    </label>
+
+                    <label class="algorithm-option">
+                        <input type="radio" name="algorithm" value="hybrid">
+                        <div class="option-content">
+                            <div class="option-header">
+                                <h3>Hybrid Mode</h3>
+                                <span class="badge hybrid">⚡ Dual Protection</span>
+                            </div>
+                            <p>Combines Kyber + RSA for maximum security during transition period.</p>
+                            <div class="stats">
+                                <span><i class="fas fa-layer-group"></i> Double encryption</span>
+                                <span><i class="fas fa-shield-alt"></i> Belt & suspenders</span>
+                                <span><i class="fas fa-sync-alt"></i> Transition-ready</span>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+
+                <button id="generateKeys" class="btn btn-primary pulse">
+                    <i class="fas fa-key"></i> Generate Encryption Keys
+                </button>
+                <div id="keyStatus" class="status-message"></div>
+                <div id="downloadKeyArea" style="display:none; margin-top: 10px;">
+                    <button id="downloadKeyBtn" class="btn btn-warning" style="font-size:0.85rem;">
+                        <i class="fas fa-download"></i> Download Key File
+                        <small style="display:block; font-size:0.7rem; opacity:0.8;">Save this to decrypt your files
+                            later</small>
+                    </button>
+                </div>
+            </section>
+
+            <section class="card glass">
+                <h2><i class="fas fa-file-shield"></i> Encrypt Your Files</h2>
+                <div class="file-upload-area">
+                    <input type="file" id="fileInput" accept="*/*">
+                    <label for="fileInput" class="file-label">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <span>Drop your file here or click to browse</span>
+                    </label>
+                    <div id="fileName" class="file-name"></div>
+                </div>
+
+                <button id="encryptBtn" class="btn btn-success" disabled>
+                    <i class="fas fa-lock"></i> Encrypt File
+                </button>
+                <div id="encryptStatus" class="status-message"></div>
+                <div id="aiAnalysis" class="ai-analysis hidden"></div>
+            </section>
+
+            <section class="card glass">
+                <h2><i class="fas fa-tachometer-alt"></i> Performance Benchmark</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                    Run real-time performance comparison between Kyber-768 and RSA-2048
+                </p>
+                <button id="benchmarkBtn" class="btn btn-info">
+                    <i class="fas fa-play-circle"></i> Run Benchmark (50 iterations)
+                </button>
+                <div id="benchmarkResults" class="benchmark-results"></div>
+            </section>
+        </div>
+
+        <!-- Decryption Tab -->
+        <div class="tab-content" id="decrypt-tab">
+            <section class="card glass">
+                <h2><i class="fas fa-lock-open"></i> Decrypt Your Files</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                    Restore files that were encrypted with QBits. You need the same session keys used during encryption.
+                </p>
+
+                <!-- Step 1: Load Keys -->
+                <div style="margin-bottom: 24px;">
+                    <h3
+                        style="color: var(--text-secondary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">
+                        Step 1 — Load Decryption Keys
+                    </h3>
+
+                    <!-- Option A: use same session -->
+                    <button id="decryptGenerateKeys" class="btn btn-primary pulse">
+                        <i class="fas fa-key"></i> Use Current Session Keys
+                    </button>
+                    <div id="decryptKeyStatus" class="status-message"></div>
+
+                    <!-- Option B: import key file from a previous session -->
+                    <div
+                        style="margin-top: 16px; padding: 16px; border: 1px dashed rgba(255,255,255,0.15); border-radius: 12px;">
+                        <p style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 10px;">
+                            <i class="fas fa-folder-open"></i> <strong>Or import a saved Key File</strong> (from a
+                            previous session)
+                        </p>
+                        <input type="file" id="keyFileInput" accept=".json,application/json" style="display:none">
+                        <label for="keyFileInput" class="btn btn-info"
+                            style="cursor:pointer; font-size:0.85rem; display:inline-block;">
+                            <i class="fas fa-upload"></i> Select Key File (.json)
+                        </label>
+                        <span id="keyFileName"
+                            style="margin-left:10px; color: var(--text-secondary); font-size:0.8rem;"></span>
+                        <div id="importKeyStatus" class="status-message"></div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Upload & Decrypt -->
+                <div>
+                    <h3
+                        style="color: var(--text-secondary); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">
+                        Step 2 — Upload Encrypted File
+                    </h3>
+                    <div class="file-upload-area">
+                        <input type="file" id="decryptFileInput" accept=".encrypted,*/*">
+                        <label for="decryptFileInput" class="file-label">
+                            <i class="fas fa-file-import"></i>
+                            <span>Drop your .encrypted file here or click to browse</span>
+                        </label>
+                        <div id="decryptFileName" class="file-name"></div>
+                    </div>
+
+                    <button id="decryptBtn" class="btn btn-success" disabled>
+                        <i class="fas fa-unlock"></i> Decrypt File
+                    </button>
+                    <div id="decryptStatus" class="status-message"></div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Threat Intelligence Tab -->
+        <div class="tab-content" id="intel-tab">
+            <section class="card glass">
+                <h2><i class="fas fa-satellite-dish"></i> Quantum Threat Intelligence</h2>
+                <div id="threatIntelContent">
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <span>Loading real-time quantum threat data...</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card glass">
+                <h2><i class="fas fa-calculator"></i> Data Risk Assessment Calculator</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                    Calculate when your encrypted data will be vulnerable to quantum attacks
+                </p>
+                <div class="risk-form">
+                    <div class="form-group">
+                        <label>📅 Encryption Date:</label>
+                        <input type="date" id="encryptionDate" value="2020-01-01">
+                    </div>
+                    <div class="form-group">
+                        <label>🔒 Data Classification:</label>
+                        <select id="sensitivity">
+                            <option value="PUBLIC">Public</option>
+                            <option value="INTERNAL">Internal</option>
+                            <option value="CONFIDENTIAL" selected>Confidential</option>
+                            <option value="SECRET">Secret</option>
+                            <option value="TOP_SECRET">Top Secret</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="display: flex; align-items: flex-end;">
+                        <button id="assessRisk" class="btn btn-warning" style="width: 100%;">
+                            <i class="fas fa-chart-bar"></i> Calculate Risk
+                        </button>
+                    </div>
+                </div>
+                <div id="riskResult" class="risk-result"></div>
+            </section>
+        </div>
+
+        <!-- AI Assistant Tab -->
+        <div class="tab-content" id="assistant-tab">
+            <section class="card glass chat-container">
+                <h2><i class="fas fa-robot"></i> AI Cryptography Assistant</h2>
+                <p class="chat-intro">
+                    💬 Ask me anything about quantum cryptography, Kyber vs RSA, migration strategies,
+                    security timelines, or how the algorithms work!
+                </p>
+
+                <div class="chat-messages" id="chatMessages">
+                    <div class="chat-message bot">
+                        <div class="message-content">
+                            <strong>🤖 QBits Assistant:</strong>
+                            <p>Hello! I'm your AI cryptography expert. I can help you understand:
+                                <br><br>
+                                • How Kyber-768 and RSA-2048 work<br>
+                                • Why quantum computers threaten current encryption<br>
+                                • When RSA will be broken (2029-2030 timeline)<br>
+                                • Migration strategies for your organization<br>
+                                • Performance comparisons and benchmarks<br>
+                                <br>
+                                What would you like to know?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-input-area">
+                    <input type="text" id="chatInput" placeholder="Type your question here..." />
+                    <button id="sendChat" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <!-- Dashboard Tab -->
+        <div class="tab-content" id="dashboard-tab">
+            <section class="card glass">
+                <h2><i class="fas fa-shield-virus"></i> AI Security Monitoring</h2>
+                <div id="dashboardContent">
+                    <div class="loading">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <span>Loading security dashboard...</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <p>🔐 Built with NIST-approved Post-Quantum Cryptography</p>
+            <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.6;">
+                © 2026 QBits - Securing the Post-Quantum Era
+            </p>
+        </footer>
+    </div>
+
+    <script src="/static/js/app.js?v=6"></script>
+</body>
+
+</html>
+
+<!-- Add new tab button in tabs section -->
+<button class="tab" data-tab="simulator">
+    <i class="fas fa-atom"></i> Attack Simulator
+</button>
+
+<!-- Add the attack simulator section -->
+<div class="tab-content" id="simulator-tab">
+    <section class="card glass">
+        <h2><i class="fas fa-atom"></i> Live Quantum Attack Simulator</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 30px;">
+            🎯 Watch a quantum computer attempt to break encryption in real-time!<br>
+            See why RSA-2048 falls in hours, but Kyber-768 remains unbreakable.
+        </p>
+
+        <div style="display: flex; gap: 20px; margin-bottom: 30px; flex-wrap: wrap;">
+            <button class="btn btn-danger" id="attackRSA">
+                <i class="fas fa-skull-crossbones"></i> Attack RSA-2048
+            </button>
+            <button class="btn btn-success" id="attackKyber">
+                <i class="fas fa-shield-alt"></i> Attack Kyber-768
+            </button>
+            <button class="btn btn-warning" id="attackBoth">
+                <i class="fas fa-bolt"></i> Compare Both
+            </button>
+        </div>
+
+        <div id="attackVisualization" style="display: none;">
+            <div class="attack-container">
+                <div class="attack-stage" id="attackStage">
+                    <div class="stage-title">Initializing Quantum Computer...</div>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="attackProgress"></div>
+                    </div>
+                    <div class="stage-message" id="attackMessage"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="attackResults" class="hidden" style="margin-top: 30px;"></div>
+    </section>
+</div>

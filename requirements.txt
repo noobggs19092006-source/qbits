@@ -1,0 +1,20 @@
+# Quantum-Safe Cryptography
+liboqs-python
+
+# Classical Cryptography
+pycryptodome
+cryptography
+
+# Web Framework
+flask
+flask-cors
+
+# Performance & Visualization
+numpy
+matplotlib
+pandas
+seaborn
+
+# Utilities
+python-dotenv
+tqdm

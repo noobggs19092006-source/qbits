@@ -1,0 +1,29 @@
+<!-- Add this section to your tabs -->
+<div class="tab-content" id="simulator-tab">
+    <section class="card glass">
+        <h2><i class="fas fa-atom"></i> Quantum Attack Simulator</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 30px;">
+            Watch in real-time as a quantum computer attempts to break encryption algorithms.
+            See why RSA fails but Kyber survives!
+        </p>
+        
+        <div class="attack-controls">
+            <button class="btn btn-danger attack-btn" data-algo="rsa" data-size="2048">
+                <i class="fas fa-skull-crossbones"></i> Attack RSA-2048
+            </button>
+            <button class="btn btn-success attack-btn" data-algo="kyber" data-size="768">
+                <i class="fas fa-shield-alt"></i> Attack Kyber-768
+            </button>
+            <button class="btn btn-warning attack-btn" id="attackBoth">
+                <i class="fas fa-bolt"></i> Attack Both (Compare)
+            </button>
+        </div>
+        
+        <div id="attackVisualization" class="attack-viz"></div>
+        
+        <div id="attackResults" class="attack-results hidden">
+            <h3>Attack Results</h3>
+            <div class="results-comparison"></div>
+        </div>
+    </section>
+</div>

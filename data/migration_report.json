@@ -1,0 +1,95 @@
+{
+  "scan_date": "2026-02-17T23:02:32.688760",
+  "total_findings": 6,
+  "risk_score": 60,
+  "risk_level": "HIGH",
+  "findings_by_type": {
+    "RSA": 2,
+    "ECC": 4
+  },
+  "migration_timeline": {
+    "total_weeks": 5,
+    "phases": {
+      "Phase 1 - Analysis": "1 weeks",
+      "Phase 2 - Testing": "2 weeks",
+      "Phase 3 - Deployment": "2 weeks"
+    },
+    "estimated_completion": "2026-03-24"
+  },
+  "recommendations": [
+    {
+      "priority": "IMMEDIATE",
+      "action": "Deploy Hybrid Mode",
+      "description": "Implement hybrid (RSA + Kyber) encryption for critical systems",
+      "benefit": "Provides quantum safety while maintaining backward compatibility"
+    },
+    {
+      "priority": "HIGH",
+      "action": "Update Key Management",
+      "description": "Upgrade key management systems to support PQC algorithms",
+      "benefit": "Enables smooth transition to quantum-safe cryptography"
+    },
+    {
+      "priority": "HIGH",
+      "action": "Train Development Team",
+      "description": "Educate developers on PQC best practices",
+      "benefit": "Reduces implementation errors and security gaps"
+    },
+    {
+      "priority": "MEDIUM",
+      "action": "Gradual Migration",
+      "description": "Replace RSA/ECC with Kyber in non-critical systems first",
+      "benefit": "Minimizes risk while gaining operational experience"
+    },
+    {
+      "priority": "MEDIUM",
+      "action": "Update Dependencies",
+      "description": "Ensure all libraries support NIST PQC standards",
+      "benefit": "Maintains long-term security and compliance"
+    }
+  ],
+  "detailed_findings": [
+    {
+      "file": "../data/sample_codebase/auth_service.py",
+      "line": 9,
+      "type": "RSA",
+      "pattern": "RSA.generate(2048)",
+      "risk": "HIGH"
+    },
+    {
+      "file": "../data/sample_codebase/auth_service.py",
+      "line": 3,
+      "type": "RSA",
+      "pattern": "from Crypto.PublicKey import RSA",
+      "risk": "HIGH"
+    },
+    {
+      "file": "../data/sample_codebase/secure_channel.py",
+      "line": 9,
+      "type": "ECC",
+      "pattern": "ECC.generate",
+      "risk": "HIGH"
+    },
+    {
+      "file": "../data/sample_codebase/secure_channel.py",
+      "line": 4,
+      "type": "ECC",
+      "pattern": "ecdsa",
+      "risk": "HIGH"
+    },
+    {
+      "file": "../data/sample_codebase/secure_channel.py",
+      "line": 12,
+      "type": "ECC",
+      "pattern": "ECDSA",
+      "risk": "HIGH"
+    },
+    {
+      "file": "../data/sample_codebase/secure_channel.py",
+      "line": 13,
+      "type": "ECC",
+      "pattern": "ecdsa",
+      "risk": "HIGH"
+    }
+  ]
+}

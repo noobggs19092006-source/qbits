@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+.env
+
+# Secrets — NEVER commit keys
+*private_key*.json
+qbits_private_key.json
+
+# Build
+*.egg-info/
+dist/
+build/
+
+# Temp / OS
+.DS_Store
+Thumbs.db
+*.tmp
+
+# Large deps folder (installed by pip at deploy time)
+deps/
+
+# Log files
+*.log
+
+# Encrypted / decrypted test files (user data)
+*.encrypted
+Decrypted*
+tmprjo*
+"Terminal Velocity*"
