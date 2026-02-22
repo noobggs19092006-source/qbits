@@ -32,7 +32,8 @@ class RealTimeAIAssistant:
             try:
                 self.client = Groq(api_key=self.api_key)
                 # Use the new working model
-                self.model = "llama-3.3-70b-versatile"  # UPDATED MODEL
+                self.models = ["llama-3.3-70b-versatile", "llama3-8b-8192", "mixtral-8x7b-32768"]
+                self.model = self.models[0]
                 self.enabled = True
                 print(f"✅ Groq AI enabled with model: {self.model}")
             except Exception as e:
@@ -53,38 +54,34 @@ Specialize in: CRYSTALS-Kyber, quantum threats, RSA vulnerabilities, NIST standa
         if not self.enabled:
             return self._fallback_response(question)
         
-        try:
-            self.conversation_history.append({
-                "role": "user",
-                "content": question
-            })
-            
-            if len(self.conversation_history) > 10:
-                self.conversation_history = self.conversation_history[-10:]
-            
-            response = self.client.chat.completions.create(
-                model=self.model,
-                messages=[
-                    {"role": "system", "content": self.system_prompt},
-                    *self.conversation_history
-                ],
-                temperature=0.7,
-                max_tokens=600,
-                top_p=1
-            )
-            
-            answer = response.choices[0].message.content
-            
-            self.conversation_history.append({
-                "role": "assistant",
-                "content": answer
-            })
-            
-            return answer
-            
-        except Exception as e:
-            print(f"❌ Groq API Error: {e}")
-            return self._fallback_response(question)
+        last_error = None
+        self.conversation_history.append({"role": "user", "content": question})
+        if len(self.conversation_history) > 10:
+            self.conversation_history = self.conversation_history[-10:]
+
+        for model in self.models:
+            try:
+                response = self.client.chat.completions.create(
+                    model=model,
+                    messages=[
+                        {"role": "system", "content": self.system_prompt},
+                        *self.conversation_history
+                    ],
+                    temperature=0.7,
+                    max_tokens=600,
+                    top_p=1
+                )
+                answer = response.choices[0].message.content
+                self.conversation_history.append({"role": "assistant", "content": answer})
+                self.model = model  # remember which model worked
+                return answer
+            except Exception as e:
+                last_error = e
+                print(f"❌ Groq model {model} failed: {e}")
+                continue
+
+        # All models failed — return error details so we can debug
+        return f"⚠️ AI Error (all models failed). Last error: {last_error}. Please check your GROQ_API_KEY on Render."
     
     def _fallback_response(self, question):
         """Fallback responses"""
